@@ -1,0 +1,32 @@
+### 성공: 회원가입
+POST http://127.0.0.1:8000/api/v1/auth/signup
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "test1@example.com",
+  "nickname": "test1",
+  "password": "P@ssw0rd!234"
+}
+
+### 실패(conflict): 회원가입
+POST http://127.0.0.1:8000/api/v1/auth/signup
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "test1@example.com",
+  "nickname": "test2",
+  "password": "P@ssw0rd!234"
+}
+
+### 실패(bad email): 회원가입
+POST http://127.0.0.1:8000/api/v1/auth/signup
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "not-an-email",
+  "nickname": "test3",
+  "password": "P34"
+}

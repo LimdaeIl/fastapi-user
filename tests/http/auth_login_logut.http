@@ -1,0 +1,29 @@
+// POST
+
+### 회원가입
+POST http://127.0.0.1:8000/api/v1/auth/signup
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "test2@example.com",
+  "nickname": "testuser2",
+  "password": "Password123!"
+}
+
+### 로그인 (성공 시 Set-Cookie로 access_token, refresh_token 내려와야 함)
+# - REST Client에서는 응답 헤더의 "Set-Cookie"를 확인
+POST http://127.0.0.1:8000/api/v1/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "test2@example.com",
+  "password": "Password123!"
+}
+
+
+
+### 로그아웃 (성공 시 쿠키 삭제 Set-Cookie가 내려와야 함)
+POST http://127.0.0.1:8000/api/v1/auth/logout
+Accept: application/json
